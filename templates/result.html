@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87CEEB; /* Sky Blue */
+            font-family: 'Indie Flower', cursive; /* Handwriting font */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff; /* White text */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        a {
+            text-decoration: none;
+            color: #4CAF50; /* Green color for the link */
+            font-size: 16px;
+            margin-top: 10px; /* Add margin for spacing */
+        }
+
+        a:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Processing Complete!</h1>
+    <a id="download-link" href="/download/{{ output_file }}">Download Output File</a>
+
+    <script>
+        if (window.performance.getEntriesByType("navigation")) {
+            r = window.performance.getEntriesByType("navigation")[0];
+            if (r.type == 'reload') {
+                fetch('/clear_folders');
+                window.location.href = '/';
+            }
+        }
+    </script>
+</body>
+</html>

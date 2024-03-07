@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Files</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87CEEB; /* Sky Blue */
+            font-family: 'Indie Flower', cursive; /* Handwriting font */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff; /* White text */
+            margin-bottom: 20px; /* Add margin to h1 to avoid overlap with the form */
+        }
+
+        form {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 8px; /* Smaller padding */
+            margin-bottom: 8px; /* Smaller margin */
+            box-sizing: border-box;
+            font-size: 14px; /* Smaller font size */
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px; /* Smaller font size */
+            display: inline-block;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1 id="uploadText"></h1>
+        <h1>Copyediting Automation</h1>
+        <form action="/process" method="POST" enctype="multipart/form-data">
+            <p>Author Writings: </p>
+            <input type="file" name="file1" accept=".docx"><br><br>
+            <p>AJournal Templates: </p>
+            <input type="file" name="file2" accept=".docx"><br><br>
+            <button type="submit" id="submitButton">Process Files</button>
+        </form>
+    </div>
+
+    <script>
+        const uploadText = document.getElementById('uploadText');
+        const submitButton = document.getElementById('submitButton');
+
+        const phrases = ["Upload Files", "Upload Here"];
+
+        function typeText(index) {
+            const currentText = phrases[index];
+            let charIndex = 0;
+
+            function type() {
+                if (charIndex < currentText.length) {
+                    uploadText.textContent += currentText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, 150); // Adjust the typing speed here (increased to 150ms)
+                } else {
+                    setTimeout(erase, 2000); // Wait for 2 seconds before erasing
+                }
+            }
+
+            function erase() {
+                if (charIndex > 0) {
+                    uploadText.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, 50); // Adjust the erasing speed here
+                } else {
+                    setTimeout(() => typeText((index + 1) % phrases.length), 1000); // Wait for 1 second before typing the next phrase
+                }
+            }
+
+            type();
+        }
+
+        typeText(0); // Start the typing animation
+    </script>
+</body>
+</html>
