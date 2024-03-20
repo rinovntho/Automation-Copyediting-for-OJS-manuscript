@@ -11,6 +11,7 @@ Basic Instructions
     Set up the environment in the directory:
 
 python -m venv venv
+
 venv\Scripts\activate
 
 Install all dependencies from requirements.txt:
