@@ -5,6 +5,7 @@ This program automates the process of copyediting journal manuscripts to meet th
 Warning: Only upload DOCX files; input validation is pending.
 
 The program can be run locally and accessed by any device on the network through a web browser. Please note that the program is still under development and improvements are ongoing.
+
 Basic Instructions
 
     Set up the environment in the directory:
