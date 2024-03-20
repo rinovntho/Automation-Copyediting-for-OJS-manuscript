@@ -37,4 +37,4 @@ Contributions to this project are welcome! If you'd like to contribute, follow t
 
 By contributing to this project, you agree to release your contributions under the GNU General Public License v3.0 (GPL-3.0).
 
-For more information, refer to the GitHub Community Guidelines.
+For more information, refer to the [GitHub Community Guidelines](https://docs.github.com/en/communities)
